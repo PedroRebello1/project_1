@@ -4,7 +4,7 @@ import feedparser
 import pandas as pd
 from datetime import datetime
 
-# Função para extrair notícias da Apple Newsroom
+# Função para extrair notícias da Apple
 def get_apple_news():
     url = 'https://www.apple.com/newsroom/rss-feed.rss'
     feed = feedparser.parse(url)
@@ -19,7 +19,7 @@ def get_apple_news():
         })
     return apple_news
 
-# Função para extrair notícias do Google Newsroom
+# Função para extrair notícias do Google
 def get_google_news():
     url = 'https://blog.google/rss'
     feed = feedparser.parse(url)
@@ -34,7 +34,7 @@ def get_google_news():
         })
     return google_news
 
-# Função para extrair notícias do NVIDIA Newsroom
+# Função para extrair notícias do NVIDIA
 def get_nvidia_news():
     url = 'https://nvidianews.nvidia.com/releases.xml'
     feed = feedparser.parse(url)
@@ -61,20 +61,10 @@ def collect_news():
 # Função para salvar as notícias em um arquivo CSV
 def save_news_to_csv(news, filename='news.csv'):
     df = pd.DataFrame(news)
-    # Manter o formato original da data
     df.to_csv(filename, index=False)
 
-# Função para exibir as notícias de forma amigável
-def display_news(news):
-    for article in news:
-        published = article['published'] if article['published'] else 'No Date Provided'
-        print(f"Title: {article['title']}")
-        print(f"Link: {article['link']}")
-        print(f"Published: {published}")
-        print(f"Source: {article['source']}\n")
 
 if __name__ == '__main__':
     all_news = collect_news()
     save_news_to_csv(all_news)
-    display_news(all_news)
     print(f"Saved {len(all_news)} news articles to news.csv")
