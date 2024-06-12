@@ -7,13 +7,23 @@ window.addEventListener('DOMContentLoaded', function() {
         newsContainers.forEach(container => {
             // Initialize slider for each company's news inside the container
             new Glider(container, {
-                slidesToShow: 1,
-                slidesToScroll: 1,
+                slidesToShow: 'auto', // Show as many slides as possible
+                slidesToScroll: 'auto', // Scroll one slide at a time
                 dots: '.dots',
                 arrows: {
                     prev: '.glider-prev',
                     next: '.glider-next'
-                }
+                },
+                draggable: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
             });
         });
     }

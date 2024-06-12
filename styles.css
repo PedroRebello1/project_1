@@ -38,3 +38,15 @@ body {
     color: #757575;
     font-size: 0.9em;
 }
+
+/* For phone */
+@media screen and (max-width: 767px) {
+    .news-container {
+        flex-direction: column; /* Change to column layout */
+    }
+
+    .news-column {
+        max-width: 100%; /* Allow each company to take full width */
+        margin: 0;
+    }
+}
