@@ -1,3 +1,5 @@
+/* nn vou comentar essa merda, nem eu entendo */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -13,8 +15,8 @@ body {
 
 .news-column {
     flex-grow: 1;
-    max-width: calc(33.333% - 20px); /* 33.333% width for each column with spacing */
-    margin: 0 10px; /* Add some spacing between columns */
+    max-width: calc(33.333% - 20px);
+    margin: 0 10px;
 }
 
 .news-card {
@@ -42,11 +44,11 @@ body {
 /* For phone */
 @media screen and (max-width: 767px) {
     .news-container {
-        flex-direction: column; /* Change to column layout */
+        flex-direction: column;
     }
 
     .news-column {
-        max-width: 100%; /* Allow each company to take full width */
+        max-width: 100%;
         margin: 0;
     }
 }

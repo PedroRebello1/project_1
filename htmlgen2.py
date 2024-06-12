@@ -2,7 +2,7 @@ import csv
 import datetime
 from dateutil import parser
 
-# Read the CSV file
+# Le o aquivo CSV
 news_data = {}
 with open('news.csv', mode='r', encoding='utf-8') as file:
     csv_reader = csv.DictReader(file)
@@ -12,11 +12,11 @@ with open('news.csv', mode='r', encoding='utf-8') as file:
             news_data[source] = []
         news_data[source].append(row)
 
-# Sort the news items by date/time
+# Organiza por data
 for source, news_list in news_data.items():
     news_data[source] = sorted(news_list, key=lambda x: parser.parse(x['published']), reverse=True)
 
-# Create the HTML content
+# Cria o html
 html_content = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +39,7 @@ for source, news_list in news_data.items():
         link = news['link']
         published = news['published']
         
-        # Parse and format the published date
+        # Formata a data/hora
         try:
             published_date = parser.parse(published)
             formatted_date = published_date.strftime('%d/%m/%Y | %H:%M')
@@ -61,6 +61,6 @@ html_content += '''
 </body>
 </html>'''
 
-# Write the HTML content to a file
+# Atualiza/cria o arquivop
 with open('news.html', 'w', encoding='utf-8') as file:
     file.write(html_content)
